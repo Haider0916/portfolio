@@ -1,118 +1,99 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import HamBurger from "../../public/icons/hamburger.svg"
+import DP from "../../public/assets/me.jpg"
+import Dashboard from "../../public/assets/bloodbank/dashboardPage.png"
+import Signup from "../../public/assets/bloodbank/signupPage.png"
+import Profile from "../../public/assets/bloodbank/myProfile.png"
+import Linkedin from "../../public/icons/linkedin.svg"
+import Facebook from "../../public/icons/facebook.svg"
+import Email from "../../public/icons/email.svg"
+import Github from "../../public/icons/github.svg"
+import Link from "next/link";
 
 export default function Home() {
+
+  const intro = `Full stack developer with 3 years of experience specializing in JavaScript and its latest advancements. Proven track record in prominent product-based companies, demonstrating expertise in front-end development using technologies such as React, Next, and Nest. Extensive background in the fintech, AI, and telephony sectors. Eager to contribute technical proficiency and collaborate in challenging environments. Possesses strong communication skills and is certified in effective communication.`
+
+  const content = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker.`.substring(0, 390) + "...";
+
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div>
+      <header>
+        <nav>
+          <div className="flex">
+            <div className="flex-1"></div>
+            <Image src={HamBurger} alt={"Hamburger icon"} height={50} width={50} className="sm:hidden" />
+            <ul className="max-sm:hidden flex p-3">
+              <Link className=" font-semibold mr-3 cursor-pointer" href={"/"}>Works</Link>
+              <Link className=" font-semibold mr-3 cursor-pointer" href={"/"}>Blog</Link>
+              <Link className=" font-semibold mr-3 cursor-pointer" href={"/"}>Contact</Link>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <div className="md:p-16 lg:px-32 lg:py-16 lg:pb-9">
+          <div className="flex justify-center items-center mt-5 flex-col md:flex-row-reverse md:items-start">
+            <div className="md:w-[40%] md:h-[40%] mb-5 flex justify-center">
+              <Image src={DP} alt={"Profile picture"} className="rounded-full h-48 w-48 md:h-64 md:w-64" />
+            </div>
+            <div className="p-5 flex flex-col items-center md:w-[60%] md:h-[60%] mb-5">
+              <p className="text-xl font-bold mb-5 text-center">Hi, I am Syed Haider, a software engineer with 3+ years of experience</p>
+              <p className="mb-5 text-center break-words">{intro}</p>
+              <a className="bg-[coral] py-1 px-3 text-white mb-5 cursor-pointer">Download Resume</a>
+            </div>
+          </div>
+          <section>
+            <div className="bg-[#edf7fa] px-5 pb-9">
+              <p className="flex justify-center font-semibold text-lg p-3">Blogs</p>
+              <div className="bg-white px-4 py-3 mb-4">
+                <h1 className="text-xl font-bold mb-2">Making a design system from scratch</h1>
+                <p className="mb-4">12th Feb 2020 &nbsp;&nbsp; | &nbsp;&nbsp; Design, Pattern</p>
+                <p className="h-[240]">{content}</p>
+              </div>
+              <div className="bg-white px-4 py-3">
+                <h1 className="text-xl font-bold mb-2">Making a design system from scratch</h1>
+                <p className="mb-4">12th Feb 2020 &nbsp;&nbsp; | &nbsp;&nbsp; Design, Pattern</p>
+                <p className="h-[240]">{content}</p>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div className="px-5 pb-9 md:p-0">
+              <p className="flex justify-center font-semibold text-lg p-3">Featured work</p>
+              <div className="bg-white px-4 py-3 md:p-0">
+                <Image src={Profile} alt={"blood donation sample images"} className="mb-3 border-2 border-black" />
+                <h1 className="text-xl font-bold">Blood donation application</h1>
+                <p className="text-lg">Next.js Node.js MySQL Tailwind</p>
+                <p className="mb-4">12th Feb 2020</p>
+                <p className="h-[240]">{content}</p>
+                <hr className="mt-7" />
+              </div>
+              <div className="bg-white px-4 py-3 md:p-0">
+                <Image src={Dashboard} alt={"blogging application sample images"} className="mb-3 border-2 border-black" />
+                <h1 className="text-xl font-bold">Blogging application</h1>
+                <p className="text-lg">Next.js Node.js MySQL Tailwind</p>
+                <p className="mb-4">12th Feb 2020</p>
+                <p className="h-[240]">{content}</p>
+              </div>
+            </div>
+          </section>
+          {/* Add a section of job experiences and find related resources for the job  */}
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      </main>
+      <footer>
+        <div className="flex justify-center items-center flex-col mb-9">
+          <div className="w-[80%] flex flex-col items-center">
+            <div className="flex flex-nowrap items-center justify-between w-full max-w-52">
+              <Image height={35} width={35} src={Linkedin} alt={"Linkedin logo"} />
+              <Image height={30} width={30} src={Github} alt={"Github logo"} />
+              <Image height={30} width={30} src={Email} alt={"Email logo"} />
+              <Image height={30} width={30} src={Facebook} alt={"Facebook logo"} />
+            </div>
+            <div className="mt-5 flex items-center text-xs">Copyright &copy; 2020 All rights reserved</div>
+          </div>
+        </div>
+      </footer >
+    </div >
   );
 }
