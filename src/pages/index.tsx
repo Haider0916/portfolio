@@ -32,8 +32,8 @@ export default function Home() {
         </nav>
       </header>
       <main>
-        <div className="md:p-16 lg:px-32 lg:py-16 lg:pb-9">
-          <div className="flex justify-center items-center mt-5 flex-col md:flex-row-reverse md:items-start">
+        <div className="md:py-16 lg:p-0 lg:pt-16 lg:pb-9">
+          <div className="flex justify-center items-center mt-5 flex-col md:flex-row-reverse md:items-start lg:px-32 md:px-16">
             <div className="md:w-[40%] md:h-[40%] mb-5 flex justify-center">
               <Image src={DP} alt={"Profile picture"} className="rounded-full h-48 w-48 md:h-64 md:w-64" />
             </div>
@@ -44,30 +44,33 @@ export default function Home() {
             </div>
           </div>
           <section>
-            <div className="bg-[#edf7fa] px-5 pb-9">
-              <p className="flex justify-center font-semibold text-lg p-3">Blogs</p>
-              <div className="bg-white px-4 py-3 mb-4">
-                <h1 className="text-xl font-bold mb-2">Making a design system from scratch</h1>
-                <p className="mb-4">12th Feb 2020 &nbsp;&nbsp; | &nbsp;&nbsp; Design, Pattern</p>
-                <p className="h-[240]">{content}</p>
-              </div>
-              <div className="bg-white px-4 py-3">
-                <h1 className="text-xl font-bold mb-2">Making a design system from scratch</h1>
-                <p className="mb-4">12th Feb 2020 &nbsp;&nbsp; | &nbsp;&nbsp; Design, Pattern</p>
-                <p className="h-[240]">{content}</p>
+            <div className="bg-[#edf7fa] px-5 pb-5 lg:px-0 md:px-0">
+              <div className="lg:px-32 md:px-16 md:flex md:flex-wrap md:justify-between">
+                <p className="flex justify-center font-semibold text-lg p-3 md:w-[50%] md:justify-start">Blogs</p>
+                <p className="flex justify-center font-semibold text-lg p-3 max-md:hidden md:w-[50%] md:justify-end"><span className="cursor-pointer">View all</span></p>
+                <div className="bg-white px-4 py-3 mb-4 md:w-[48%]">
+                  <h1 className="text-xl font-bold mb-2">Making a design system from scratch</h1>
+                  <p className="mb-4">12th Feb 2020 &nbsp;&nbsp; | &nbsp;&nbsp; Design, Pattern</p>
+                  <p className="h-[240]">{content}</p>
+                </div>
+                <div className="bg-white px-4 py-3 mb-4 md:w-[48%]">
+                  <h1 className="text-xl font-bold mb-2">Making a design system from scratch</h1>
+                  <p className="mb-4">12th Feb 2020 &nbsp;&nbsp; | &nbsp;&nbsp; Design, Pattern</p>
+                  <p className="h-[240]">{content}</p>
+                </div>
               </div>
             </div>
           </section>
           <section>
-            <div className="px-5 pb-9 md:p-0">
+            <div className="px-5 pb-9 md:p-0 lg:px-32 md:px-16">
               <p className="flex justify-center font-semibold text-lg p-3">Featured work</p>
-              <div className="bg-white px-4 py-3 md:p-0">
+              <div className="bg-white py-3 md:p-0">
                 <Image src={Profile} alt={"blood donation sample images"} className="mb-3 border-2 border-black" />
                 <h1 className="text-xl font-bold">Blood donation application</h1>
                 <p className="text-lg">Next.js Node.js MySQL Tailwind</p>
                 <p className="mb-4">12th Feb 2020</p>
                 <p className="h-[240]">{content}</p>
-                <hr className="mt-7" />
+                <hr className="my-7 border-gray-300" />
               </div>
               <div className="bg-white px-4 py-3 md:p-0">
                 <Image src={Dashboard} alt={"blogging application sample images"} className="mb-3 border-2 border-black" />
@@ -75,6 +78,22 @@ export default function Home() {
                 <p className="text-lg">Next.js Node.js MySQL Tailwind</p>
                 <p className="mb-4">12th Feb 2020</p>
                 <p className="h-[240]">{content}</p>
+                <hr className="my-7 border-gray-300" />
+              </div>
+              <div className="relative">
+                <div className="flex">
+                  <button className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-1 rounded-l-lg z-10 hover:bg-gray-700 focus:outline-none">
+                    &lt;
+                  </button>
+                  <button className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-1 rounded-r-lg z-10 hover:bg-gray-700 focus:outline-none">
+                    &gt;
+                  </button>
+                </div>
+                <div className="flex overflow-hidden">
+                  <Image src={Dashboard} alt={"blogging application sample images"} className="mb-3 border-2 border-black w-full" />
+                  <Image src={Dashboard} alt={"blogging application sample images"} className="mb-3 border-2 border-black w-full hidden" />
+                  <Image src={Dashboard} alt={"blogging application sample images"} className="mb-3 border-2 border-black w-full hidden" />
+                </div>
               </div>
             </div>
           </section>
@@ -93,7 +112,7 @@ export default function Home() {
             <div className="mt-5 flex items-center text-xs">Copyright &copy; 2020 All rights reserved</div>
           </div>
         </div>
-      </footer >
-    </div >
+      </footer>
+    </div>
   );
 }
